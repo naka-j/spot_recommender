@@ -1,5 +1,7 @@
 {
   "name": "spot_recommender",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }

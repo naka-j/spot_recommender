@@ -31,3 +31,5 @@ bower.json
 .byebug_history
 
 .idea/
+config/secrets.yml
+node_modules/

@@ -3,12 +3,38 @@
   <head>
     <title>SpotRecommender</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCwPUjPOPCA_9gz6-FK5WxtzckPI_n2ShI&libraries=places,drawing,geometry&v=3&callback=&"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header">
+
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Spot Recommnender</span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href=""><i class="material-icons">search</i></a>
+          </nav>
+        </div>
+
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Area chat</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <div class="mdl-layout__content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
