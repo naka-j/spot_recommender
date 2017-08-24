@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require jquery/dist/jquery
 //= require material
+//= require constants
 //= require_tree .
