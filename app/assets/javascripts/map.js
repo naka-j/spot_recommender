@@ -1,12 +1,12 @@
 var GoogleMap;
 var map;
-$(function() {
+
     GoogleMap = {
         init: function() {
             map = new google.maps.Map($('#map')[0], {
                 center: {
-                    lat: MOUNTAIN_VIEW_LAT,
-                    lng: MOUNTAIN_VIEW_LNG
+                    lat: DEFAULT_VIEW_LAT,
+                    lng: DEFAULT_VIEW_LNG
                 },
                 zoom: DEFAULT_ZOOM_SIZE,
                 mapTypeControlOptions: {
@@ -14,18 +14,33 @@ $(function() {
                     position: google.maps.ControlPosition.BOTTOM_RIGHT
                 }
             });
-            this.setMarker();
+            SpotController.loadSpots(GoogleMap.loadSpotsSuccess, GoogleMap.loadSpotsError);
+
         },
-        setMarker: function() {
+        setMarker: function(lat, lng) {
             var marker = new google.maps.Marker({
                 map: map,
                 position: {
-                    lat: MOUNTAIN_VIEW_LAT,
-                    lng: MOUNTAIN_VIEW_LNG
+                    lat: lat,
+                    lng: lng
                 },
+                animation: google.maps.Animation.DROP,
                 title: 'Hello World!'
             });
+            // marker.addListener('click', )
         },
+        loadSpotsSuccess: function(data, status, jqXHR) {
+            console.log(data)
+            if (data) {
+                data.forEach(function(d) {
+                    GoogleMap.setMarker(d.latitude, d.longitude);
+                });
+            }
+        },
+        loadSpotsError: function(jqXHR, status, error) {
+            alart('Error!')
+        },
+
         search: function(query) {
             var params = {
                 query: query,
@@ -49,5 +64,8 @@ $(function() {
             console.log(data);
         }
     };
-    GoogleMap.init();
-});
+
+
+function initMap() {
+    GoogleMap.init()
+}
