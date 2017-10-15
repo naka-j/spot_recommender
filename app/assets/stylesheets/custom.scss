@@ -1,1 +1,21 @@
 @import 'material';
+
+$sidebar-width: 315px;
+
+.mdl-layout__drawer-button {
+  background-color: rgb(63,81,181);
+  margin: 0;
+}
+
+.mdl-layout__drawer {
+  width: 315px;
+}
+
+.mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > .mdl-layout__header {
+  margin-left: $sidebar-width;
+  width: calc(100% - #{$sidebar-width} );
+}
+
+.mdl-layout--fixed-drawer > .mdl-layout__content {
+  margin-left: $sidebar-width;
+}

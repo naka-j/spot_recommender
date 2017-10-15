@@ -1,13 +1,13 @@
 <header class="mdl-layout__header">
-
-  <div class="mdl-layout__header-row">
+  <div class="mdl-layout__header-row" id="default-header">
     <span class="mdl-layout-title">Spot Recommender</span>
     <div class="mdl-layout-spacer"></div>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" id="area-search-link" href="#"><i class="material-icons">search</i></a>
+      <a class="mdl-navigation__link" id="search-link" href="#"><i class="material-icons">search</i></a>
     </nav>
   </div>
-  <div class="mdl-layout__header-row" style="background-color: #fff;">
+  <div class="mdl-layout__header-row" id="search-active-header" style="display:none;background-color: #fff;">
+    <span class="mdl-layout-title"><i class="material-icons">search</i></span>
     <div class="mdl-layout-spacer" id="search-query-input-are">
       <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input" type="text" id="search-query">
@@ -15,9 +15,7 @@
       </div>
     </div>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" id="area-search-link" style="color: rgb(66, 66, 66)" href="#"><i class="material-icons">close</i></a>
+      <a class="mdl-navigation__link" id="search-close-link" style="color: rgb(66, 66, 66)" href="#"><i class="material-icons">close</i></a>
     </nav>
   </div>
-
-
 </header>

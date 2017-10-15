@@ -23,22 +23,26 @@ var SpotController = {
 
 var SpotView = {
     init: function () {
-        this.searchLink = $('#area-search-link');
+        this.searchLink = $('#search-link');
+        this.searchCloseLink = $('#search-close-link');
+        this.defaultHeader = $('#default-header');
+        this.searchHeader = $('#search-active-header');
         this.searchTextBox = $('#search-query');
         this.bindEvents();
     },
     bindEvents: function () {
-        this.searchLink.on('click', this.toggleSearchMode.bind(this));
+        this.searchLink.on('click', this.showSearchBox.bind(this));
+        this.searchCloseLink.on('click', this.hideSearchBox.bind(this));
         this.searchTextBox.on('keyup', this.executeSearch.bind(this));
     },
-    toggleSearchMode: function () {
-        alert('toggle')
-    },
     showSearchBox: function () {
-
+        this.defaultHeader.hide();
+        this.searchHeader.show();
+        this.searchTextBox.focus();
     },
     hideSearchBox: function () {
-
+        this.searchHeader.hide();
+        this.defaultHeader.show();
     },
     executeSearch: function (e) {
         if (e.keyCode !== ENTER_KEY) {
